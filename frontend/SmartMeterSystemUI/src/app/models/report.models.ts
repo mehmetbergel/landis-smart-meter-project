@@ -14,4 +14,5 @@ export interface ContentDetail {
     readingTime: Date;
     serialNumber: string;
     voltageValue: number;
+    currentValue: number;
 }
