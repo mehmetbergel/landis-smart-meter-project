@@ -18,7 +18,6 @@ builder.Services.AddCors(options =>
                 .SetIsOriginAllowed(origin => true);
         });
 });
-builder.Services.AddHostedService<BackgroundWorker>();
 builder.Services.AddControllers();
 builder.Services.AddMassTransit(x =>
 {
