@@ -60,6 +60,10 @@ export class MeterDataComponent implements OnInit {
     } else {
       this.modifiedMeterList = this.meterList;
     }
+
+    this.dataSource = new MatTableDataSource(this.modifiedMeterList);
+    this.dataSource.sort = this.sort;
+    this.configureSortingAccessor();
   }
 
   public loadMeters(): void {
