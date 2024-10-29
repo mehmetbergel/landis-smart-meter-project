@@ -1,20 +1,40 @@
+.container {
+  padding: 20px;
+  
+  mat-card {
+    margin-bottom: 20px;
+  }
+}
+
 .report-form {
-    display: flex;
-    gap: 1rem;
-    align-items: flex-start;
-    margin-bottom: 2rem;
+  display: flex;
+  gap: 16px;
+  align-items: center;
+  margin-bottom: 20px;
   
-    mat-form-field {
-      flex: 1;
-    }
+  mat-form-field {
+    flex: 1;
   }
-  
-  table {
-    width: 100%;
-    margin-top: 2rem;
-  }
-  
-  .mat-column-actions {
-    width: 100px;
-    text-align: center;
-  }
+}
+
+.table-actions {
+  display: flex;
+  justify-content: flex-end;
+  margin: 16px 0;
+}
+
+table {
+  width: 100%;
+}
+
+.mat-column-status {
+  width: 120px;
+}
+
+mat-progress-bar {
+  margin: 16px 0;
+}
+
+mat-error {
+  margin: 8px 0;
+}
