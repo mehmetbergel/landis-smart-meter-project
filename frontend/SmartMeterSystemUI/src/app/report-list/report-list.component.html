@@ -1,0 +1,77 @@
+<div class="container">
+    <mat-card>
+        <mat-card-header>
+            <mat-card-title>Raporlar</mat-card-title>
+        </mat-card-header>
+
+        <mat-card-content>
+            <div class="report-form">
+                <mat-form-field appearance="outline">
+                    <mat-label>Sayaç Seri Numarası</mat-label>
+                    <input matInput [formControl]="serialNumberControl">
+                    <mat-error *ngIf="serialNumberControl.hasError('required')">
+                        Seri numarası zorunludur
+                    </mat-error>
+                    <mat-error
+                        *ngIf="serialNumberControl.hasError('minlength') || serialNumberControl.hasError('maxlength')">
+                        Seri numarası 8 karakter olmalıdır
+                    </mat-error>
+                </mat-form-field>
+
+                <button mat-raised-button color="primary" (click)="createNewReport()"
+                    [disabled]="!serialNumberControl.valid || loading">
+                    <mat-icon>add</mat-icon>
+                    Yeni Rapor Oluştur
+                </button>
+            </div>
+
+            <mat-progress-bar *ngIf="loading" mode="indeterminate"></mat-progress-bar>
+
+            <mat-error *ngIf="error">{{error}}</mat-error>
+
+            <table mat-table [dataSource]="reports" class="mat-elevation-z8">
+                <ng-container matColumnDef="meterSerialNumber">
+                    <th mat-header-cell *matHeaderCellDef>Sayaç Seri Numarası</th>
+                    <td mat-cell *matCellDef="let report">{{report.meterSerialNumber }}</td>
+                </ng-container>
+                <ng-container matColumnDef="readingTime">
+                    <th mat-header-cell *matHeaderCellDef>Okunma Tarihi</th>
+                    <td mat-cell *matCellDef="let report">{{report.contentDetail?.ReadingTime }}</td>
+                </ng-container>
+                <ng-container matColumnDef="lastIndex">
+                    <th mat-header-cell *matHeaderCellDef>Son Endeks</th>
+                    <td mat-cell *matCellDef="let report">{{report.contentDetail?.LastIndex }}</td>
+                </ng-container>
+                <ng-container matColumnDef="voltageValue">
+                    <th mat-header-cell *matHeaderCellDef>Voltaj</th>
+                    <td mat-cell *matCellDef="let report">{{report.contentDetail?.VoltageValue }}</td>
+                </ng-container>
+
+                <ng-container matColumnDef="currentValue">
+                    <th mat-header-cell *matHeaderCellDef>Akım</th>
+                    <td mat-cell *matCellDef="let report">{{report.contentDetail?.VoltageValue }}</td>
+                </ng-container>
+                <ng-container matColumnDef="requestDate">
+                    <th mat-header-cell *matHeaderCellDef>Talep Tarihi</th>
+                    <td mat-cell *matCellDef="let report">{{report.requestDate | date:'medium'}}</td>
+                </ng-container>
+
+                <ng-container matColumnDef="status">
+                    <th mat-header-cell *matHeaderCellDef>Durum</th>
+                    <td mat-cell *matCellDef="let report">
+                        <mat-chip [color]="report.status === 1 ? 'accent' : 'primary'" selected="true">
+                            {{report.status === 1 ? 'Tamamlandı' : 'Hazırlanıyor'}}
+                        </mat-chip>
+                    </td>
+                </ng-container>
+
+                <tr mat-header-row
+                    *matHeaderRowDef="['meterSerialNumber', 'readingTime', 'lastIndex', 'voltageValue', 'currentValue', 'requestDate', 'status']">
+                </tr>
+                <tr mat-row
+                    *matRowDef="let row; columns: ['meterSerialNumber', 'readingTime', 'lastIndex', 'voltageValue', 'currentValue', 'requestDate', 'status'];">
+                </tr>
+            </table>
+        </mat-card-content>
+    </mat-card>
+</div>

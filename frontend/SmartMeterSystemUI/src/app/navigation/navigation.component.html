@@ -1,0 +1,9 @@
+<mat-toolbar color="primary">
+    <span>Akıllı Sayaç Sistemi</span>
+    <span class="spacer"></span>
+    <nav>
+        <a mat-button *ngFor="let item of navItems" routerLink="item.path" routerLinkActive="active">
+            {{item.label}}
+        </a>
+    </nav>
+</mat-toolbar>
