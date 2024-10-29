@@ -18,36 +18,36 @@
       <mat-progress-bar *ngIf="loading" mode="indeterminate"></mat-progress-bar>
 
       <mat-error *ngIf="error">{{error}}</mat-error>
-      <table mat-table [dataSource]="modifiedMeterList" class="mat-elevation-z8">
+      <table mat-table [dataSource]="dataSource" matSort class="mat-elevation-z8">
         <ng-container matColumnDef="serialNumber">
-          <th mat-header-cell *matHeaderCellDef>Sayaç Seri Numarası</th>
+          <th mat-header-cell *matHeaderCellDef mat-sort-header>Sayaç Seri Numarası</th>
           <td mat-cell *matCellDef="let meter">{{meter.serialNumber}}</td>
         </ng-container>
 
         <ng-container matColumnDef="readingTime">
-          <th mat-header-cell *matHeaderCellDef>Okunma Tarihi</th>
+          <th mat-header-cell *matHeaderCellDef mat-sort-header>Okunma Tarihi</th>
           <td mat-cell *matCellDef="let meter">{{meter.readingTime | date:'medium'}}</td>
         </ng-container>
 
         <ng-container matColumnDef="lastIndex">
-          <th mat-header-cell *matHeaderCellDef>Son Endeks</th>
+          <th mat-header-cell *matHeaderCellDef mat-sort-header>Son Endeks</th>
           <td mat-cell *matCellDef="let meter">{{ meter.lastIndex }}</td>
         </ng-container>
 
         <ng-container matColumnDef="voltageValue">
-          <th mat-header-cell *matHeaderCellDef>Voltaj</th>
+          <th mat-header-cell *matHeaderCellDef mat-sort-header>Voltaj</th>
           <td mat-cell *matCellDef="let meter">{{ meter.voltageValue }}</td>
         </ng-container>
 
         <ng-container matColumnDef="currentValue">
-          <th mat-header-cell *matHeaderCellDef>Akım</th>
+          <th mat-header-cell *matHeaderCellDef mat-sort-header>Akım</th>
           <td mat-cell *matCellDef="let meter">{{ meter.currentValue }}</td>
         </ng-container>
 
         <tr mat-header-row
-          *matHeaderRowDef="['serialNumber', 'readingTime', 'lastIndex', 'voltageValue', 'currentValue']"></tr>
+          *matHeaderRowDef="displayColumns"></tr>
         <tr mat-row
-          *matRowDef="let row; columns: ['serialNumber', 'readingTime', 'lastIndex', 'voltageValue', 'currentValue'];">
+          *matRowDef="let row; columns: displayColumns;">
         </tr>
       </table>
       <div class="modal" [class.show-modal]="showModal">
