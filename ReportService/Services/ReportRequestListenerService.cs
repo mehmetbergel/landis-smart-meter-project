@@ -27,7 +27,7 @@ namespace ReportService.Services
             this.logger = logger;
             this.applicationDbContext = applicationDbContext;
             this.httpClient = httpClient;
-            this.httpClient.BaseAddress = new Uri("https://localhost:7126");
+            this.httpClient.BaseAddress = new Uri(Environment.GetEnvironmentVariable("Meter_Service_Url"));
         }
 
         public async Task Consume(ConsumeContext<ReportRequestMessage> context)

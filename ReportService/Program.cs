@@ -18,17 +18,16 @@ builder.Services.AddCors(options =>
                 .SetIsOriginAllowed(origin => true);
         });
 });
-builder.Services.AddHostedService<BackgroundWorker>();
 builder.Services.AddControllers();
 builder.Services.AddMassTransit(x =>
 {
     x.AddConsumer<ReportRequestListenerService>();
     x.UsingRabbitMq((context, cfg) =>
     {
-        cfg.Host("localhost", "/", h =>
+        cfg.Host(Environment.GetEnvironmentVariable("RabbitMQ_Server"), "/", h =>
         {
-            h.Username("user");
-            h.Password("pass");
+            h.Username(Environment.GetEnvironmentVariable("RabbitMQ_User"));
+            h.Password(Environment.GetEnvironmentVariable("RabbitMQ_Password"));
         });
         cfg.ReceiveEndpoint("report-queue", e =>
         {
