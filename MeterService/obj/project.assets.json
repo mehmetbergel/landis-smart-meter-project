@@ -8191,11 +8191,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Melis Uzsen\\Desktop\\final-project\\landis-smart-meter-project\\MeterService\\MeterService.csproj",
+      "projectUniqueName": "C:\\Users\\Melis Uzsen\\Desktop\\29.10 smart-meter-project\\landis-smart-meter-project\\MeterService\\MeterService.csproj",
       "projectName": "MeterService",
-      "projectPath": "C:\\Users\\Melis Uzsen\\Desktop\\final-project\\landis-smart-meter-project\\MeterService\\MeterService.csproj",
+      "projectPath": "C:\\Users\\Melis Uzsen\\Desktop\\29.10 smart-meter-project\\landis-smart-meter-project\\MeterService\\MeterService.csproj",
       "packagesPath": "C:\\Users\\Melis Uzsen\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Melis Uzsen\\Desktop\\final-project\\landis-smart-meter-project\\MeterService\\obj\\",
+      "outputPath": "C:\\Users\\Melis Uzsen\\Desktop\\29.10 smart-meter-project\\landis-smart-meter-project\\MeterService\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\Melis Uzsen\\AppData\\Roaming\\NuGet\\NuGet.Config",

@@ -8564,11 +8564,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Melis Uzsen\\Desktop\\final-project\\landis-smart-meter-project\\ReportService\\ReportService.csproj",
+      "projectUniqueName": "C:\\Users\\Melis Uzsen\\Desktop\\29.10 smart-meter-project\\landis-smart-meter-project\\ReportService\\ReportService.csproj",
       "projectName": "ReportService",
-      "projectPath": "C:\\Users\\Melis Uzsen\\Desktop\\final-project\\landis-smart-meter-project\\ReportService\\ReportService.csproj",
+      "projectPath": "C:\\Users\\Melis Uzsen\\Desktop\\29.10 smart-meter-project\\landis-smart-meter-project\\ReportService\\ReportService.csproj",
       "packagesPath": "C:\\Users\\Melis Uzsen\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Melis Uzsen\\Desktop\\final-project\\landis-smart-meter-project\\ReportService\\obj\\",
+      "outputPath": "C:\\Users\\Melis Uzsen\\Desktop\\29.10 smart-meter-project\\landis-smart-meter-project\\ReportService\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\Melis Uzsen\\AppData\\Roaming\\NuGet\\NuGet.Config",

@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "RiaIZX7q2bg=",
+  "dgSpecHash": "QWTaeGB+u4s=",
   "success": true,
-  "projectFilePath": "C:\\Users\\Melis Uzsen\\Desktop\\final-project\\landis-smart-meter-project\\ReportService\\ReportService.csproj",
+  "projectFilePath": "C:\\Users\\Melis Uzsen\\Desktop\\29.10 smart-meter-project\\landis-smart-meter-project\\ReportService\\ReportService.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Melis Uzsen\\.nuget\\packages\\azure.core\\1.35.0\\azure.core.1.35.0.nupkg.sha512",
     "C:\\Users\\Melis Uzsen\\.nuget\\packages\\azure.identity\\1.10.3\\azure.identity.1.10.3.nupkg.sha512",
