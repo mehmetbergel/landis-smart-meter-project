@@ -1,25 +1,25 @@
 version: '3.8'
 
+
 services:
   mssql:
     image: mcr.microsoft.com/mssql/server:2022-latest
-    container_name: mssql_container
+    container_name: ${MSSQL_SERVER}
     environment:
       - ACCEPT_EULA=Y
-      - MSSQL_SA_PASSWORD=YourStrongPassword!
+      - MSSQL_SA_PASSWORD=${MSSQL_SA_PASSWORD}
       - MSSQL_PID=Express
     ports:
       - "1453:1433"
     volumes:
       - mssql_data:/var/opt/mssql
 
-
   rabbitmq:
     image: rabbitmq:3-management
-    container_name: rabbitmq_container
+    container_name: ${RABBITMQ_SERVER}
     environment:
-      - RABBITMQ_DEFAULT_USER=user
-      - RABBITMQ_DEFAULT_PASS=pass
+      - RABBITMQ_DEFAULT_USER=${RABBITMQ_USER}
+      - RABBITMQ_DEFAULT_PASS=${RABBITMQ_PASS}
     ports:
       - "5672:5672"
       - "15672:15672"
