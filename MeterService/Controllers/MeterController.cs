@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using MeterService.Data;
 using MeterService.Models;
+using MeterService.Services;
 
 namespace MeterService.Controllers
 {
@@ -14,11 +15,13 @@ namespace MeterService.Controllers
     [ApiController]
     public class MeterController : ControllerBase
     {
+        private readonly MeterReadingService _meterReadingService;
         private readonly ApplicationDbContext _context;
 
-        public MeterController(ApplicationDbContext context)
+        public MeterController(ApplicationDbContext context, MeterReadingService meterReadingService)
         {
             _context = context;
+            _meterReadingService = meterReadingService;
         }
 
         // GET: api/Meter
@@ -78,15 +81,7 @@ namespace MeterService.Controllers
         [HttpPost]
         public async Task<ActionResult<MeterReading>> PostMeterReading(MeterReading meterReading)
         {
-            var meter = new MeterReading
-            {
-                UUID = Guid.NewGuid(),
-                SerialNumber = meterReading.SerialNumber,
-                CurrentValue = meterReading.CurrentValue,
-                LastIndex = meterReading.LastIndex,
-                VoltageValue = meterReading.VoltageValue,
-                ReadingTime = DateTime.Now
-            };
+            var meter = _meterReadingService.CreateMeterReading(meterReading);
             _context.MeterReadings.Add(meter);
             await _context.SaveChangesAsync();
 
