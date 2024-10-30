@@ -116,19 +116,11 @@ git clone https://github.com/mehmetbergel/landis-smart-meter-project
 
 ```bash
 
-docker-compose  up
+cd .\landis-smart-meter-project\ 
+docker-compose  up -d
 
 ```
 
-  
-
-4. Access the services:
-
-- Meter Service: `http://localhost:7126/swagger`
-
-- Report Service: `http://localhost:7008/swagger`
-
-  
 
 ## API Documentation
 
@@ -162,37 +154,28 @@ Manages report generation and downloads:
 
 ### Running Locally
 
-  
-
-1. Start the required services (SQL Server, RabbitMQ):
-
-```bash
-
-docker-compose  up  rabbitmq  sqlserver
-
-```
 
   
 
-2. Run the Meter Service:
+1. Run the Meter Service:
 
 ```bash
 
 cd  MeterService
 
-dotnet  run
+dotnet run --urls "https://localhost:7126"
 
 ```
 
   
 
-3. Run the Report Service:
+2. Run the Report Service:
 
 ```bash
 
 cd  ReportService
 
-dotnet  run
+dotnet run --urls "https://localhost:7008"
 
 ```
 
