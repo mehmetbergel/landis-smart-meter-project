@@ -14,11 +14,13 @@ namespace ReportService.Controllers
     {
         private readonly ApplicationDbContext _context;
         private readonly ISendEndpointProvider _sendEndpointProvider;
+        private readonly ReportDownloadService _reportDownloadService;
 
-        public ReportController(ApplicationDbContext context, ISendEndpointProvider sendEndpointProvider)
+        public ReportController(ApplicationDbContext context, ISendEndpointProvider sendEndpointProvider, ReportDownloadService reportDownloadService)
         {
             _context = context;
             _sendEndpointProvider = sendEndpointProvider;
+            _reportDownloadService = reportDownloadService;
         }
 
         // GET: api/Report
@@ -40,6 +42,42 @@ namespace ReportService.Controllers
             }
 
             return report;
+        }
+
+
+        [HttpGet("download/{fileType}")]
+        public async Task<IActionResult> Download(string fileType)
+        {
+            byte[] fileBytes;
+            string contentType;
+            string fileName;
+            var data = await _reportDownloadService.GetData();
+
+            switch (fileType.ToLower())
+            {
+                case "excel":
+                    fileBytes = _reportDownloadService.GenerateExcel(data);
+                    contentType = "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet";
+                    fileName = $"rapor_{DateTime.Now:yyyyMMddHHmmss}.xlsx";
+                    break;
+
+                case "csv":
+                    fileBytes = _reportDownloadService.GenerateCsv(data);
+                    contentType = "text/csv";
+                    fileName = $"rapor_{DateTime.Now:yyyyMMddHHmmss}.csv";
+                    break;
+
+                case "txt":
+                    fileBytes = _reportDownloadService.GenerateText(data);
+                    contentType = "text/plain";
+                    fileName = $"rapor_{DateTime.Now:yyyyMMddHHmmss}.txt";
+                    break;
+
+                default:
+                    return BadRequest(new { message = "Geçersiz dosya tipi" });
+            }
+
+            return File(fileBytes, contentType, fileName);
         }
 
         // PUT: api/Report/5

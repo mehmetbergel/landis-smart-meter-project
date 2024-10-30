@@ -30,15 +30,15 @@
                     </button>
 
                     <mat-menu #menu="matMenu">
-                        <button mat-menu-item (click)="downloadFile('excel')">
+                        <button mat-menu-item (click)="downloadFile(FileType.EXCEL)">
                             <mat-icon>description</mat-icon>
                             <span>Excel</span>
                         </button>
-                        <button mat-menu-item (click)="downloadFile('csv')">
+                        <button mat-menu-item (click)="downloadFile(FileType.CSV)">
                             <mat-icon>insert_drive_file</mat-icon>
                             <span>CSV</span>
                         </button>
-                        <button mat-menu-item (click)="downloadFile('text')">
+                        <button mat-menu-item (click)="downloadFile(FileType.TXT)">
                             <mat-icon>text_snippet</mat-icon>
                             <span>Text</span>
                         </button>

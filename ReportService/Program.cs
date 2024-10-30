@@ -19,6 +19,8 @@ builder.Services.AddCors(options =>
         });
 });
 builder.Services.AddControllers();
+builder.Services.AddScoped<ReportDownloadService>();
+
 builder.Services.AddMassTransit(x =>
 {
     x.AddConsumer<ReportRequestListenerService>();
