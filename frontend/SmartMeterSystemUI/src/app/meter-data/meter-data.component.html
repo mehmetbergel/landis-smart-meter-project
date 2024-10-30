@@ -80,22 +80,22 @@
 
             <mat-form-field appearance="outline" class="full-width">
               <mat-label>Voltaj</mat-label>
-              <input matInput type="number" formControlName="voltage">
-              <mat-error *ngIf="meterForm?.get('voltage')?.hasError('required')">
+              <input matInput type="number" formControlName="voltageValue">
+              <mat-error *ngIf="meterForm?.get('voltageValue')?.hasError('required')">
                 Voltaj zorunludur
               </mat-error>
-              <mat-error *ngIf="meterForm?.get('voltage')?.hasError('min')">
+              <mat-error *ngIf="meterForm?.get('voltageValue')?.hasError('min')">
                 Voltaj 0'dan büyük olmalıdır
               </mat-error>
             </mat-form-field>
 
             <mat-form-field appearance="outline" class="full-width">
               <mat-label>Akım</mat-label>
-              <input matInput type="number" formControlName="current">
-              <mat-error *ngIf="meterForm?.get('current')?.hasError('required')">
+              <input matInput type="number" formControlName="currentValue">
+              <mat-error *ngIf="meterForm?.get('currentValue')?.hasError('required')">
                 Akım zorunludur
               </mat-error>
-              <mat-error *ngIf="meterForm?.get('current')?.hasError('min')">
+              <mat-error *ngIf="meterForm?.get('currentValue')?.hasError('min')">
                 Akım 0'dan büyük olmalıdır
               </mat-error>
             </mat-form-field>

@@ -37,8 +37,8 @@ export class MeterDataComponent implements OnInit {
     this.meterForm = this.formBuilder.group({
       serialNumber: ['', [Validators.required, Validators.minLength(8), Validators.maxLength(8)]],
       lastIndex: ['', [Validators.required, Validators.min(0)]],
-      voltage: ['', [Validators.required, Validators.min(0)]],
-      current: ['', [Validators.required, Validators.min(0)]]
+      voltageValue: ['', [Validators.required, Validators.min(0)]],
+      currentValue: ['', [Validators.required, Validators.min(0)]]
     });
   }
 
