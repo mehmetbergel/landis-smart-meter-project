@@ -8,6 +8,7 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatMenuModule } from '@angular/material/menu';
 import { MatSort, MatSortModule } from '@angular/material/sort';
 import { MatTableDataSource, MatTableModule } from '@angular/material/table';
+import { timer } from 'rxjs';
 
 @Component({
   selector: 'app-report-list',
@@ -91,6 +92,7 @@ export class ReportListComponent implements OnInit, AfterViewInit {
         .subscribe({
           next: () => {
             this.loadReports();
+            timer(5000).subscribe(() => this.loadReports());
             this.serialNumberControl.reset();
           },
           error: (error) => {
