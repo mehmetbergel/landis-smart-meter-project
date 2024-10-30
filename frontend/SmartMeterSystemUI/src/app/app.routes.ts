@@ -5,6 +5,6 @@ import { MeterDataComponent } from './meter-data/meter-data.component';
 export const routes: Routes = [
     { path: 'reports', component: ReportListComponent },
     { path: 'meter-data', component: MeterDataComponent },
-    { path: '', redirectTo: '/reports', pathMatch: 'full' }
+    { path: '', redirectTo: '/meter-data', pathMatch: 'full' }
 ];
 
