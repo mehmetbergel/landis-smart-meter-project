@@ -4,7 +4,7 @@ namespace MeterService.Services
 {
     public class MeterReadingService
     {
-        public MeterReading CreateMeterReading(MeterReading meterReading)
+        public virtual MeterReading CreateMeterReading(MeterReading meterReading)
         {
             return new MeterReading
             {
