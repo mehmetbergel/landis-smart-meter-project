@@ -102,7 +102,7 @@ Both services require a SQL Server connection string in their configuration:
 
 ```bash
 
-git  clone [https://github.com/mehmetbergel/landis-smart-meter-project]
+git clone https://github.com/mehmetbergel/landis-smart-meter-project
 
 ```
 
