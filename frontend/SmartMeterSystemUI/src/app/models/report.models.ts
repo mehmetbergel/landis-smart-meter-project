@@ -16,3 +16,9 @@ export interface ContentDetail {
     voltageValue: number;
     currentValue: number;
 }
+
+export enum FileType {
+    EXCEL = 'excel',
+    CSV = 'csv',
+    TXT = 'txt'
+}
