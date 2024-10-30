@@ -66,7 +66,7 @@ export class ReportListComponent implements OnInit, AfterViewInit {
     this.reportService.getReports()
       .subscribe({
         next: (reports) => {
-          this.reports = reports.map((item) => {
+          this.reports = reports.filter((report) => report.status !== 2).map((item) => {
             return {
               ...item,
               contentDetail: this.toCamelCase(JSON.parse(item.content as string)),

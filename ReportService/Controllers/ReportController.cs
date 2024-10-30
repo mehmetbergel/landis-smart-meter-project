@@ -27,7 +27,9 @@ namespace ReportService.Controllers
         [HttpGet]
         public async Task<ActionResult<IEnumerable<Report>>> GetReports()
         {
-            return await _context.Reports.ToListAsync();
+            return await _context.Reports
+                .OrderByDescending(m => m.RequestDate)
+                .ToListAsync();
         }
 
         // GET: api/Report/5
