@@ -271,7 +271,7 @@ cd frontend/SmartMeterSystemUI
 
 ```bash
 
-npm install
+npm install --legacy-peer-deps
 
 ```
 
