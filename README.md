@@ -116,7 +116,7 @@ git clone https://github.com/mehmetbergel/landis-smart-meter-project
 
 ```bash
 
-docker-compose  up
+cd .\landis-smart-meter-project\ docker-compose  up
 
 ```
 
