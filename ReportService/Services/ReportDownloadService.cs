@@ -38,7 +38,7 @@ namespace ReportService.Services
             }
         }
 
-        public async Task<List<ReportDownloadResponse[]>> GetData()
+        public virtual async Task<List<ReportDownloadResponse[]>> GetData()
         {
             var reports = await _context.Reports.ToListAsync();
             var result = new List<ReportDownloadResponse[]>();
@@ -62,7 +62,7 @@ namespace ReportService.Services
             return result;
         }
 
-        public byte[] GenerateExcel(List<ReportDownloadResponse[]> data)
+        public virtual byte[] GenerateExcel(List<ReportDownloadResponse[]> data)
         {
             ExcelPackage.LicenseContext = LicenseContext.NonCommercial;
 
@@ -112,7 +112,7 @@ namespace ReportService.Services
                 return package.GetAsByteArray();
             }
         }
-        public byte[] GenerateCsv(List<ReportDownloadResponse[]> data)
+        public virtual byte[] GenerateCsv(List<ReportDownloadResponse[]> data)
         {
             var csv = new StringBuilder();
 
@@ -129,7 +129,7 @@ namespace ReportService.Services
             return Encoding.UTF8.GetBytes(csv.ToString());
         }
 
-        public byte[] GenerateText(List<ReportDownloadResponse[]> data)
+        public virtual byte[] GenerateText(List<ReportDownloadResponse[]> data)
         {
             var text = new StringBuilder();
 
